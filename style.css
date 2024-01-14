@@ -69,3 +69,12 @@ button.operand {
     background-color: rgb(108, 108, 108);
     color: white;
 }
+
+button.operand[value="0"] {
+    padding: 0px 3.94em;
+}
+
+button.decimal[value="."] {
+    grid-row: 5;
+    grid-column: 3;
+}
