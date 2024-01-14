@@ -57,3 +57,9 @@ button.operator {
     background-color: rgb(231, 154, 12);
     color: white;
 }
+
+button.operator[value="="] {
+    grid-row: 5;
+    grid-column: 4;
+    background-color: rgb(72, 186, 72);
+}
