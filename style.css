@@ -64,3 +64,8 @@ button.operator[value="="] {
     grid-column: 4;
     background-color: rgb(72, 186, 72);
 }
+
+button.operand {
+    background-color: rgb(108, 108, 108);
+    color: white;
+}
