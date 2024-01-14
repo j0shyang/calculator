@@ -40,3 +40,9 @@ body {
     background-color: rgb(43, 43, 43);
     border: 3px solid rgb(43, 43, 43);
 }
+
+button {
+    font-size: 25px;
+    border-color: rgb(67, 67, 67);
+    border-radius: 6px;
+}
