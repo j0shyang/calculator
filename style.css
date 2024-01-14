@@ -31,3 +31,12 @@ body {
     background-color: rgb(185, 185, 185);
     border: 5px solid rgb(43, 43, 43);
 }
+
+#buttons-container {
+    display: grid;
+    grid-template-rows: 80px 80px 80px 80px 80px;
+    grid-template-columns: 100px 100px 100px 100px;
+    gap: 1px;
+    background-color: rgb(43, 43, 43);
+    border: 3px solid rgb(43, 43, 43);
+}
