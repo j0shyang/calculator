@@ -1,6 +1,7 @@
 const topDisplay = document.querySelector('.top-display');
 const bottomDisplay = document.querySelector('.bottom-display');
 const clear = document.querySelector('.clear');
+const del = document.querySelector('.delete');
 const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
 const sign = document.querySelector('.sign');
@@ -17,6 +18,28 @@ clear.addEventListener('click', () => {
     currentOperator = '';
     topDisplay.textContent = '';
     bottomDisplay.textContent = '0';
+});
+
+del.addEventListener('click', (e) => {
+    if (currentOperator !== '' && secondInput !== '') {
+        secondInput = secondInput.slice(0, -1);
+
+        if (secondInput === '') {
+            secondInput = '';
+            bottomDisplay.textContent = '0';
+        } else {
+            bottomDisplay.textContent = secondInput;
+        }
+    } else if (firstInput !== '') {
+        firstInput = firstInput.slice(0, -1);
+
+        if (firstInput === '') {
+            firstInput = '';
+            bottomDisplay.textContent = '0';
+        } else {
+            bottomDisplay.textContent = firstInput;
+        }
+    }
 });
 
 operands.forEach(operand => {
@@ -118,7 +141,7 @@ decimal.addEventListener('click', (e) => {
 function operate(num1, num2, operator) {
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
-    
+
     switch (operator) {
         case '+':
             return num1 + num2;
