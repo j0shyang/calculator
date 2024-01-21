@@ -4,6 +4,7 @@ const clear = document.querySelector('.clear');
 const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
 const sign = document.querySelector('.sign');
+const decimal = document.querySelector('.decimal');
 let firstInput = '';
 let secondInput = '';
 let currentResult = '';
@@ -94,9 +95,30 @@ sign.addEventListener('click', (e) => {
     }
 });
 
+decimal.addEventListener('click', (e) => {
+    firstInput = firstInput.toString();
+
+    if (firstInput === '') {
+        return;
+    }
+
+    if (currentOperator !== '' && secondInput !== '') {
+        if (!secondInput.includes('.')) {
+            secondInput = secondInput + '.';
+        }
+        bottomDisplay.textContent = secondInput;
+    } else {
+        if (!firstInput.includes('.')) {
+            firstInput = firstInput + '.';
+        }
+        bottomDisplay.textContent = firstInput;
+    }
+});
+
 function operate(num1, num2, operator) {
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
+    
     switch (operator) {
         case '+':
             return num1 + num2;
