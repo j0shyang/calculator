@@ -3,6 +3,7 @@ const bottomDisplay = document.querySelector('.bottom-display');
 const clear = document.querySelector('.clear');
 const operands = document.querySelectorAll('.operand');
 const operators = document.querySelectorAll('.operator');
+const sign = document.querySelector('.sign');
 let firstInput = '';
 let secondInput = '';
 let currentResult = '';
@@ -42,26 +43,55 @@ operators.forEach(operator => {
         if (firstInput == '') {
             firstInput = '0';
             currentOperator = e.target.value;
+            
             topDisplay.textContent = `${firstInput} ${currentOperator} `;
         } else if (e.target.value !== "=") {
             if (firstInput && secondInput && currentOperator) {
                 firstInput = operate(firstInput, secondInput, currentOperator);
+
                 secondInput = '';
             }
             currentOperator = e.target.value;
+
             topDisplay.textContent = `${firstInput} ${currentOperator} `;
             bottomDisplay.textContent = firstInput;
         } else {
             if (firstInput && currentOperator && secondInput) {
                 currentResult = operate(firstInput, secondInput, currentOperator);
+
                 bottomDisplay.textContent = currentResult;
                 topDisplay.textContent = `${firstInput} ${currentOperator} ${secondInput} =`;
+                
                 firstInput = currentResult;
                 secondInput = '';
                 currentOperator = '';
             }
         }
     });
+});
+
+sign.addEventListener('click', (e) => {
+    firstInput = firstInput.toString();
+
+    if (firstInput === '') {
+        return;
+    }
+
+    if (currentOperator !== '' && secondInput !== '') {
+        if (!secondInput.includes('-')) {
+            secondInput = '-' + secondInput;
+        } else {
+            secondInput = secondInput.replace('-', '');
+        }
+        bottomDisplay.textContent = secondInput;
+    } else {
+        if (!firstInput.includes('-')) {
+            firstInput = '-' + firstInput;
+        } else {
+            firstInput = firstInput.replace('-', '');
+        }
+        bottomDisplay.textContent = firstInput;
+    }
 });
 
 function operate(num1, num2, operator) {
