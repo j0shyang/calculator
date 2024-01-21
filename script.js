@@ -64,7 +64,7 @@ operands.forEach(operand => {
 
 operators.forEach(operator => {
     operator.addEventListener('click', (e) => {
-        if (firstInput == '') {
+        if (firstInput === '' && e.target.value !== '=') {
             firstInput = '0';
             currentOperator = e.target.value;
             
