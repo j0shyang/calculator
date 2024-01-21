@@ -97,7 +97,7 @@ operators.forEach(operator => {
 sign.addEventListener('click', (e) => {
     firstInput = firstInput.toString();
 
-    if (firstInput === '') {
+    if (firstInput === '' || firstInput === '0' || secondInput === '0' || currentResult === '0') {
         return;
     }
 
